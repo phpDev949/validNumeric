@@ -1,5 +1,7 @@
 # validNumeric
 
+command-line> php validNumRange.php
+
 */ Test inputs
 * $sequence[0] = '100-200';
 * $sequence[1] = '200-100';
