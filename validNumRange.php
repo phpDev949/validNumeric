@@ -39,6 +39,10 @@ class validNumRange
                 throw new Exception(
                     sprintf('Param2 is null or not an integer! %s given', $str)
                 );
+            } elseif (is_numeric($param[0]) && !is_numeric($param[1])) {
+                throw new Exception(
+                    sprintf('Param2 is not an integer! %s given', $str)
+                );
             } else {
 	 	return true;
             }
@@ -77,33 +81,36 @@ for ($i=0;$i<count($sequence);$i++) {
 * 100-200 = true
 * Exception: Range must increase! 200-100 given in /Users/jack/Documents/validNumeric/validNumRange.php:35
 * Stack trace:
-* #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('200-100')
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('200-100')
 * #1 {main}
 * 100.11-200 = true
 * Exception: Range must increase! 200-100.11 given in /Users/jack/Documents/validNumeric/validNumRange.php:35
 * Stack trace:
-* #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('200-100.11')
-* #1 {main}
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('200-100.11')
+#1 {main}
 * 100-200.22 = true
 * Exception: Range must increase! 200.22-100 given in /Users/jack/Documents/validNumeric/validNumRange.php:35
 * Stack trace:
-* #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('200.22-100')
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('200.22-100')
 * #1 {main}
 * 100.11-200.22 = true
 * Exception: Range must increase! 200.22-100.11 given in /Users/jack/Documents/validNumeric/validNumRange.php:35
 * Stack trace:
-* #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('200.22-100.11')
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('200.22-100.11')
 * #1 {main}
 * Exception: Range must increase! A-200 given in /Users/jack/Documents/validNumeric/validNumRange.php:35
 * Stack trace:
-* #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('A-200')
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('A-200')
 * #1 {main}
-* 200.22-A = true
+* Exception: Param2 is null or not an integer! 200.22-A given in /Users/jack/Documents/validNumeric/validNumRange.php:43
+* Stack trace:
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('200.22-A')
+* #1 {main}
 * 100200 = true
 * ?&#(*& = false
 * Exception: Bad input! Non-empty string expected!  given in /Users/jack/Documents/validNumeric/validNumRange.php:16
 * Stack trace:
-* #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('')
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('')
 * #1 {main}
 * -100 = true
 * -200.22 = true
