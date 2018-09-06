@@ -45,7 +45,10 @@ command-line> php validNumRange.php
 * Stack trace:
 * #0 /Users/jack/Documents/validNumeric/validNumRange.php(66): validNumRange::isValidNumRange('A-200')
 * #1 {main}
-* 200.22-A = true
+* Exception: Param2 is null or not an integer! 200.22-A given in /Users/jack/Documents/validNumeric/validNumRange.php:43
+* Stack trace:
+* #0 /Users/jack/Documents/validNumeric/validNumRange.php(72): validNumRange::isValidNumRange('200.22-A')
+* #1 {main}
 * 100200 = true
 * ?&#(*& = false
 * Exception: Bad input! Non-empty string expected!  given in /Users/jack/Documents/validNumeric/validNumRange.php:16
